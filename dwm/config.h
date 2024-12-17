@@ -20,10 +20,10 @@ static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const char *fonts[]               = { 
-  "JetBrainsMonoNL NFP:size=13:style=Bold", 
+  "JetBrainsMonoNL:size=13:style=Bold", 
   "Font Awesome 6 Free Solid:size=13"
 };
-static const char dmenufont[]            = "JetBrainsMonoNL NFP:size=20:style=Bold";
+static const char dmenufont[]            = "JetBrainsMonoNL:size=20:style=Bold";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -192,6 +192,17 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+#define SHMD(cmd) { "/bin/sh", "-c", cmd, NULL }
+
+static const char *const autostart[] = {
+    "/usr/local/bin/st", NULL,
+    "/usr/bin/brave-beta", NULL,
+    "/home/San/.config/usr_scripts/change_wallpaper_x11.sh", NULL,
+    "picom", "-b", NULL,
+    "dunst", NULL,
+    NULL
+};
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
