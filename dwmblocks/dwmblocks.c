@@ -18,6 +18,8 @@
 #define MIN( a, b ) ( ( a < b) ? a : b )
 #define STATUSLENGTH (LENGTH(blocks) * CMDLENGTH + 1)
 
+/* GC gc;  // Declare the graphics context variable globally */
+
 typedef struct {
 	char* icon;
 	char* command;
@@ -53,7 +55,7 @@ static void (*writestatus) () = pstdout;
 static char statusbar[LENGTH(blocks)][CMDLENGTH] = {0};
 static char statusstr[2][STATUSLENGTH];
 static int statusContinue = 1;
-static int returnStatus = 0;
+/* static int returnStatus = 0; */
 
 //opens process *cmd and stores output in *output
 void getcmd(const Block *block, char *output)
@@ -130,8 +132,21 @@ void setroot()
 {
 	if (!getstatus(statusstr[0], statusstr[1]))//Only set root if text has changed.
 		return;
+	 // Load the font from blocks.h
+    /* XFontStruct *font_info; */
+    /* font_info = XLoadQueryFont(dpy, fonts[0]);  // Use the first font in the array */
+
+  /* if (!font_info) { */
+  /*     fprintf(stderr, "dwmblocks: Unable to load font: %s\n", fonts[0]); */
+  /*     return; */
+  /* } */
+
+    // Set font for the statusbar text (this applies only to status bar in X11)
+  /* XSetFont(dpy, gc, font_info->fid); */
+	 
 	XStoreName(dpy, root, statusstr[0]);
 	XFlush(dpy);
+	/* XFreeFont(dpy, font_info); */
 }
 
 int setupX()
@@ -143,6 +158,8 @@ int setupX()
 	}
 	screen = DefaultScreen(dpy);
 	root = RootWindow(dpy, screen);
+	// Initialize graphics context for font handling
+  /* gc = XCreateGC(dpy, root, 0, NULL); */
 	return 1;
 }
 #endif
