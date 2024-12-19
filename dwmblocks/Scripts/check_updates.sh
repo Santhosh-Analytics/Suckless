@@ -10,4 +10,4 @@ yay_updates=$(yay -Qup | wc -l)
 flathub_updates=$(flatpak update --appstream | wc -l)
 
 # If updates are available, output the count in the format pacman_updates|yay_updates|flathub_updates
-echo " $pacman_updates|$yay_updates|$flathub_updates" # Red color for updates
+echo "$pacman_updates|$yay_updates|$flathub_updates" # Red color for updates
