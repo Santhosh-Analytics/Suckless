@@ -16,5 +16,5 @@ fi
 wifi_icon="󰤨"   # Wi-Fi icon
 
 # Display the SSID and connection speed
-echo "$wifi_icon $ssid | Speed: $speed"
+echo "$wifi_icon $ssid @ $speed"
 

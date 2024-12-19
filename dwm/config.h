@@ -1,5 +1,9 @@
 /* See LICENSE file for copyright and license details. */
-
+#include <X11/keysym.h>
+#include <X11/keysymdef.h>
+/* #include <X11/extensions/XF86keysym.h> */
+#define XF86MonBrightnessUp    0x1008FF02
+#define XF86MonBrightnessDown  0x1008FF03
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 12;       /* snap pixel */
@@ -113,6 +117,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+{ 0, XF86MonBrightnessUp,   spawn, SHCMD("brightnessctl set +10%") },
+{ 0, XF86MonBrightnessDown, spawn, SHCMD("brightnessctl set 10%-") },
 };
 
 /* button definitions */
