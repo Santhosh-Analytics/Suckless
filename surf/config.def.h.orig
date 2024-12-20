@@ -1,12 +1,11 @@
 /* modifier 0 means no modifier */
 static int surfuseragent    = 1;  /* Append Surf version to default WebKit user agent */
 static char *fulluseragent  = ""; /* Or override the whole user agent string */
-static char *scriptfile     = "~/.config/surf/script.js";
-static char *styledir       = "~/.config/surf/styles/";
-static char *certdir        = "~/.config/surf/certificates/";
-static char *cachedir       = "~/.config/surf/cache/";
-static char *cookiefile     = "~/.config/surf/cookies.txt";
-static char *historyfile    = "~/.config/surf/history.txt";
+static char *scriptfile     = "~/.surf/script.js";
+static char *styledir       = "~/.surf/styles/";
+static char *certdir        = "~/.surf/certificates/";
+static char *cachedir       = "~/.surf/cache/";
+static char *cookiefile     = "~/.surf/cookies.txt";
 static char *searchurl      = "duckduckgo.com/?q=%s";
 
 /* Webkit default features */
@@ -124,11 +123,6 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
         } \
 }
 
-#define SETURI(p)       { .v = (char *[]){ "/bin/sh", "-c", \
-"prop=\"`surf_history_dmenu.sh`\" &&" \
-"xprop -id $1 -f $0 8s -set $0 \"$prop\"", \
-p, winid, NULL } }
-
 /* styles */
 /*
  * The iteration will stop at the first match, beginning at the beginning of
@@ -136,12 +130,7 @@ p, winid, NULL } }
  */
 static SiteSpecific styles[] = {
 	/* regexp               file in $styledir */
-	/* { ".*",                     "default.css" }, */
-	{ ".*archlinux.org.*",      "archlinux.css" },
-	{ ".*arcolinux.info.*",     "arcolinux-info.css" },
-	{ ".*arcolinuxforum.com.*", "arcolinuxforum.css" },
-	{ ".*suckless.org.*",       "suckless.css" },
-	{ ".*wikipedia.org.*",      "wikipedia.css" },
+	{ ".*",                 "default.css" },
 };
 
 /* certificates */
@@ -185,6 +174,7 @@ static Key keys[] = {
 	{ MODKEY,                GDK_KEY_i,      scrollh,    { .i = +10 } },
 	{ MODKEY,                GDK_KEY_u,      scrollh,    { .i = -10 } },
 
+
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_j,      zoom,       { .i = -1 } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_k,      zoom,       { .i = +1 } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_q,      zoom,       { .i = 0  } },
@@ -213,7 +203,6 @@ static Key keys[] = {
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_b,      toggle,     { .i = ScrollBars } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_t,      toggle,     { .i = StrictTLS } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_m,      toggle,     { .i = Style } },
-    { MODKEY               , GDK_KEY_Return, spawn,      SETURI("_SURF_GO") },
 };
 
 /* button definitions */

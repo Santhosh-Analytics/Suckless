@@ -6,9 +6,12 @@
 #define XF86MonBrightnessDown 0x1008FF03
 /* appearance */
 static const unsigned int borderpx = 5; /* border pixel of windows */
-static const unsigned int snap = 12;    /* snap pixel */
+static const unsigned int snap = 32;    /* snap pixel */
+static const unsigned int gappx = 6;    /* gaps between windows */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
+static const int horizpadbar = 6;       /* horizontal padding for statusbar */
+static const int vertpadbar = 7;        /* vertical padding for statusbar */
 static const char *fonts[] = {"JetBrainsMonoNL:size=12:style=Bold",
                               "Font Awesome 6 Free Solid:size=13"};
 static const char dmenufont[] = "FiraCode Nerd Font:size=12:style=Bold";
@@ -55,11 +58,12 @@ static const int resizehints =
 static const int lockfullscreen =
     1; /* 1 will force focus on the fullscreen window */
 
+#include "grid.c"
 static const Layout layouts[] = {
     /* symbol     arrange function */
     {"[]=", tile}, /* first entry is default */
     {"><>", NULL}, /* no layout function means floating behavior */
-    {"[M]", monocle},
+    {"[M]", monocle}, {"HHH", grid}, {NULL, NULL},
 };
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
