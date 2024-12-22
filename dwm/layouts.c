@@ -25,4 +25,3 @@ grid(Monitor *m) {
 		i++;
 	}
 }
-
