@@ -1,5 +1,7 @@
 // Modify this file to change what commands output to your statusbar, and
 // recompile using the make command.
+#include "/home/San/.cache/wal/colors-wal-dwm.h"
+
 static const Block blocks[] = {
     /*Icon*/ /*Command*/ /*Update Interval*/ /*Update Signal*/
     {" ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g", 5, 0},
@@ -17,7 +19,12 @@ static const Block blocks[] = {
 // delimiter.
 static char delim[] = " | ";
 static unsigned int delimLen = 5;
-
+// static const unsigned int alphas[][3] = {
+//     /*               fg      bg        border*/
+//     [SchemeNorm] = {OPAQUE, baralpha, borderalpha},
+//     [SchemeSel] = {OPAQUE, baralpha, borderalpha},
+// };
+//
 /* static const char *fonts[] = { */
 /*     "JetBrains Mono:size=17", // Use your JetBrainsMonoNL configuration */
 /* }; */
