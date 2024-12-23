@@ -1,6 +1,5 @@
 // Modify this file to change what commands output to your statusbar, and
 // recompile using the make command.
-#include "/home/San/.cache/wal/colors-wal-dwm.h"
 
 static const Block blocks[] = {
     /*Icon*/ /*Command*/ /*Update Interval*/ /*Update Signal*/

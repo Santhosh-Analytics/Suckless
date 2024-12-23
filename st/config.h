@@ -11,11 +11,11 @@
  * Arch repos and is listed as a dependency for this build. JoyPixels is also
  * a hard dependency and makes colored fonts and emojis possible.
  */
-static char *font = "Hack:pixelsize=14:antialias=true:autohint=true";
+static char *font = "JetBrains Mono:pixelsize=15:antialias=true:autohint=true";
 static char *font2[] = {
     "JoyPixels:pixelsize=14:antialias=true:autohint=true",
 };
-static int borderpx = 2;
+static int borderpx = 5;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -103,47 +103,50 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 1.0;
+float alpha = 0.9;
+//
+// enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast };
+#include "/home/San/.cache/wal/colors-wal-st.h"
 
 /* Terminal colors (16 first used in escape sequence) */
 /* Colorscheme based on the 'Doom One' theme from Doom Emacs */
-static const char *colorname[] = {
-    /* 8 normal colors */
-    "#1c1f24",
-    "#ff6c6b",
-    "#98be65",
-    "#da8548",
-    "#51afef",
-    "#c678dd",
-    "#5699af",
-    "#202328",
-
-    /* 8 bright colors */
-    "#5b6268",
-    "#da8548",
-    "#4db5bd",
-    "#ecbe7b",
-    "#3071db",
-    "#a9a1e1",
-    "#46d9ff",
-    "#dfdfdf",
-
-    [255] = 0,
-
-    /* more colors can be added after 255 to use with DefaultXX */
-    "#282c34",
-    "#bbc2cf",
-    "#d7d7d7",
-};
-
+// static const char *colorname[] = {
+//     /* 8 normal colors */
+//     "#1c1f24",
+//     "#ff6c6b",
+//     "#98be65",
+//     "#da8548",
+//     "#51afef",
+//     "#c678dd",
+//     "#5699af",
+//     "#202328",
+//
+//     //     /* 8 bright colors */
+//     "#5b6268",
+//     "#da8548",
+//     "#4db5bd",
+//     "#ecbe7b",
+//     "#3071db",
+//     "#a9a1e1",
+//     "#46d9ff",
+//     "#dfdfdf",
+//     //
+//     [255] = 0,
+//     //
+//     //     /* more colors can be added after 255 to use with DefaultXX */
+//     "#282c34",
+//     "#bbc2cf",
+//     "#d7d7d7",
+// };
+//
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-static unsigned int defaultcs = 15;
-static unsigned int defaultrcs = 15;
+// unsigned int defaultfg = 256;
+// unsigned int defaultbg = 257;
+// unsigned int defaultcs = 256;
+// static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
