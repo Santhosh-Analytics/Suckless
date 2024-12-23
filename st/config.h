@@ -11,7 +11,8 @@
  * Arch repos and is listed as a dependency for this build. JoyPixels is also
  * a hard dependency and makes colored fonts and emojis possible.
  */
-static char *font = "JetBrains Mono:pixelsize=15:antialias=true:autohint=true";
+static char *font = {
+    "JetBrains Mono:pixelsize=15:antialias=true:autohint=true"};
 static char *font2[] = {
     "JoyPixels:pixelsize=14:antialias=true:autohint=true",
 };
@@ -103,7 +104,9 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.9;
+float alpha = 0.8;
+float alphaUnfocused = 0.75;
+static char *alpha_bgcolor = "#000000";
 //
 // enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast };
 #include "/home/San/.cache/wal/colors-wal-st.h"

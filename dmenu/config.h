@@ -25,7 +25,7 @@
 static int topbar = 1; /* -b  option; if 0, dmenu appears at bottom */
 
 #if ALPHA_PATCH
-static int opacity = 0; /* -o  option; if 0, then alpha is disabled */
+static int opacity = 1; /* -o  option; if 0, then alpha is disabled */
 #endif                  // ALPHA_PATCH
 
 #if FUZZYMATCH_PATCH
@@ -62,7 +62,7 @@ static char *fonts[] =
 #else
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
-    {"Ubuntu Mono:pixelsize=12:antialias=true:autohint=true",
+    {"JetBrainsMonoNL:pixelsize=12:antialias=true:autohint=true",
      "JoyPixels:pixelsize=8:antialias=true:autohint=true"};
 #endif // PANGO_PATCH
 
@@ -112,17 +112,18 @@ static unsigned int lines = 0;
  */
 // #include "colors/doom-one.h"
 #include "/home/San/.cache/wal/colors-wal-dmenu.h"
-static char font[] = "JetBrainsMonoNL:size=12:style=Bold";
+// static const char *fonts[] = {"JetBrainsMonoNL:size=12:style=Bold"};
 
 #if GRID_PATCH
+
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */
 static unsigned int columns = 0;
 #endif // GRID_PATCH
 
 #if LINE_HEIGHT_PATCH
 static unsigned int lineheight =
-    26; /* -h option; minimum height of a menu line     */
-static unsigned int min_lineheight = 8;
+    0; /* -h option; minimum height of a menu line     */
+static unsigned int min_lineheight = 0;
 #endif // LINE_HEIGHT_PATCH
 
 #if NAVHISTORY_PATCH
