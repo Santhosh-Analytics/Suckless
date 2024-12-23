@@ -23,7 +23,8 @@
  * - XYW  */
 
 static int topbar = 1; /* -b  option; if 0, dmenu appears at bottom */
-
+// static const char *fonts[] = {"JetBrains Mono NL:style=Bold:size=12",
+//                               "Font Awesome 6 Free Solid:size=13"};
 #if ALPHA_PATCH
 static int opacity = 1; /* -o  option; if 0, then alpha is disabled */
 #endif                  // ALPHA_PATCH
@@ -45,7 +46,7 @@ static int instant = 0; /* -n  option; if 1, selects matching item without the
 #if CENTER_PATCH
 static int center =
     0; /* -c  option; if 0, dmenu won't be centered on the screen */
-static int min_width = 680; /* minimum width when centered */
+static int min_width = 580; /* minimum width when centered */
 #endif                      // CENTER_PATCH
 
 #if RESTRICT_RETURN_PATCH
@@ -55,15 +56,18 @@ static int restrict_return =
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 #if PANGO_PATCH
-static char font[] = "monospace 10";
+static const char *fonts[] = {"JetBrains Mono NL:style=Bold:size=12",
+                              "Font Awesome 6 Free Solid:size=13"};
 #else
 #if XRESOURCES_PATCH
-static char *fonts[] =
+static const char *fonts[] =
 #else
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
-    {"JetBrainsMonoNL:pixelsize=12:antialias=true:autohint=true",
-     "JoyPixels:pixelsize=8:antialias=true:autohint=true"};
+    {"JetBrains Mono NL:style=Bold:size=12",
+     "Font Awesome 6 Free Solid:size=13"};
+// {"JetBrainsMonoNL:pixelsize=12:antialias=true:autohint=true",
+//  "JoyPixels:pixelsize=8:antialias=true:autohint=true"};
 #endif // PANGO_PATCH
 
 #if MANAGED_PATCH
