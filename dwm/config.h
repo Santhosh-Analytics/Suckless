@@ -115,8 +115,11 @@ static const char *dmenucmd[] = {"dmenu_run", NULL};
 static const char *termcmd[] = {"st", NULL};
 // static const char *tabtermcmd[] = {"tabbed", "-r", "2", "st", "-w", "''",
 // NULL};
-static const char *flameshot[] = {"flameshot", "gui", NULL};
-static const char *clipcmd[] = {"clipmenu", NULL};
+static const char *flameshot[] = {"flameshot", "gui", "--clipboard", NULL};
+static const char *clipcmd[] = {"clipmenu", "-p", "San's Clip History",
+                                "-l",       "20", NULL};
+// static const char *xclipcmd[] = {"sh", "-c", "flameshot gui | xclip
+// -selection clipboard -t image/png", NULL};
 
 static Keychord keychords[] = {
     /* Keys        function        argument */
@@ -194,7 +197,8 @@ static Keychord keychords[] = {
     {1,
      {{MODKEY | ShiftMask, XK_s}},
      spawn,
-     SHCMD("flameshot gui --clipboard")},
+     SHCMD("sh -c 'flameshot gui | xclip -selection clipboard -t image/png'")},
+
     {1, {{MODKEY, XK_v}}, spawn, {.v = clipcmd}},
     //     {1,
     //      {{MODKEY | Mod1Mask, XK_s}},
