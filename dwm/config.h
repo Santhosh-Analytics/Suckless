@@ -116,6 +116,7 @@ static const char *termcmd[] = {"st", NULL};
 // static const char *tabtermcmd[] = {"tabbed", "-r", "2", "st", "-w", "''",
 // NULL};
 static const char *flameshot[] = {"flameshot", "gui", NULL};
+static const char *clipcmd[] = {"clipmenu", NULL};
 
 static Keychord keychords[] = {
     /* Keys        function        argument */
@@ -175,6 +176,26 @@ static Keychord keychords[] = {
     //
     //     /* Web browsers */
     {1, {{MODKEY, XK_w}}, spawn, SHCMD("brave-beta")},
+    {1, {{MODKEY, XK_e}}, spawn, SHCMD("thunderbird")},
+    {1, {{MODKEY, XK_f}}, spawn, SHCMD("pcmanfm")},
+    {1, {{0, XF86MonBrightnessUp}}, spawn, SHCMD("brightnessctl set +10%")},
+    {1, {{0, XF86MonBrightnessDown}}, spawn, SHCMD("brightnessctl set 10%-")},
+    {1, {{MODKEY, XK_Up}}, spawn, SHCMD("brightnessctl set +10%")},
+    {1, {{MODKEY, XK_Down}}, spawn, SHCMD("brightnessctl set 10%-")},
+    {1,
+     {{MODKEY, XK_Right}},
+     spawn,
+     SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%")},
+    {1,
+     {{MODKEY, XK_Left}},
+     spawn,
+     SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%")},
+    {1, {{0, XK_Print}}, spawn, {.v = flameshot}},
+    {1,
+     {{MODKEY | ShiftMask, XK_s}},
+     spawn,
+     SHCMD("flameshot gui --clipboard")},
+    {1, {{MODKEY, XK_v}}, spawn, {.v = clipcmd}},
     //     {1,
     //      {{MODKEY | Mod1Mask, XK_s}},
     //      spawn,
@@ -193,10 +214,10 @@ static Keychord keychords[] = {
     {1, {{MODKEY, XK_Tab}}, view, {0}},
 
     //     /* Layout manipulation */
-    {1, {{MODKEY, XK_Tab}}, cyclelayout, {.i = -1}},
-    {1, {{MODKEY | ShiftMask, XK_Tab}}, cyclelayout, {.i = +1}},
+    {1, {{MODKEY, XK_backslash}}, cyclelayout, {.i = -1}},
+    {1, {{MODKEY | ShiftMask, XK_backslash}}, cyclelayout, {.i = +1}},
     {1, {{MODKEY, XK_t}}, setlayout, {.v = &layouts[0]}},
-    {1, {{MODKEY, XK_f}}, setlayout, {.v = &layouts[1]}},
+    {1, {{MODKEY, XK_1}, {0, XK_e}}, setlayout, {.v = &layouts[1]}},
     {1, {{MODKEY, XK_m}}, setlayout, {.v = &layouts[2]}},
     {1, {{MODKEY, XK_g}}, setlayout, {.v = &layouts[3]}},
     {1, {{MODKEY, XK_space}}, setlayout, {0}},
