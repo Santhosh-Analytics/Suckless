@@ -64,8 +64,8 @@ static const char *fonts[] =
 #else
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
-    {"JetBrains Mono NL:style=Bold:size=12",
-     "Font Awesome 6 Free Solid:size=13"};
+    {"JetBrains Mono NL:style=Bold:size=14",
+     "Font Awesome 6 Free Solid:size=14"};
 // {"JetBrainsMonoNL:pixelsize=12:antialias=true:autohint=true",
 //  "JoyPixels:pixelsize=8:antialias=true:autohint=true"};
 #endif // PANGO_PATCH
