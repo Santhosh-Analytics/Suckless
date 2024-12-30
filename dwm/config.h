@@ -190,6 +190,10 @@ static Keychord keychords[] = {
     //
     //     /* Web browsers */
     {1, {{MODKEY, XK_w}}, spawn, SHCMD("brave-beta")},
+    {2,
+     {{MODKEY, XK_a}, {0, XK_p}},
+     spawn,
+     SHCMD("~/.config/usr_scripts/dmenu_alias_runner.sh")},
     {1, {{MODKEY | ShiftMask | ControlMask, XK_s}}, spawn, SHCMD("wlogout")},
     {1, {{MODKEY, XK_n}}, spawn, SHCMD("obsidian")},
     {1, {{MODKEY, XK_e}}, spawn, SHCMD("thunderbird")},
