@@ -91,7 +91,6 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
-
 #define TAGKEYS(KEY, TAG)                                                      \
   {1, {{MODKEY, KEY}}, view, {.ui = 1 << TAG}},                                \
       {1, {{MODKEY | ControlMask, KEY}}, toggleview, {.ui = 1 << TAG}},        \
@@ -194,6 +193,8 @@ static Keychord keychords[] = {
      {{MODKEY, XK_a}, {0, XK_p}},
      spawn,
      SHCMD("~/.config/usr_scripts/dmenu_alias_runner.sh")},
+    {2, {{MODKEY, XK_a}, {0, XK_c}}, spawn, SHCMD("code")},
+
     {1, {{MODKEY | ShiftMask | ControlMask, XK_s}}, spawn, SHCMD("wlogout")},
     {1, {{MODKEY, XK_n}}, spawn, SHCMD("obsidian")},
     {1, {{MODKEY, XK_e}}, spawn, SHCMD("thunderbird")},
