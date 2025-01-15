@@ -211,6 +211,12 @@ static Keychord keychords[] = {
      {{MODKEY, XK_Left}},
      spawn,
      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%")},
+    {1,
+     {{MODKEY, XK_y}},
+     spawn,
+     SHCMD("/opt/brave.com/brave-beta/brave-browser-beta "
+           "--profile-directory=Default "
+           "--app-id=agimnkijcaahngcdmfeangaknmldooml")},
     {1, {{0, XK_Print}}, spawn, {.v = flameshot}},
 
     {1, {{MODKEY | ShiftMask, XK_s}}, spawn, {.v = flameshot}},
