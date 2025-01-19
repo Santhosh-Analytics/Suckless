@@ -35,7 +35,7 @@ static int fuzzy = 1; /* -F  option; if 0, dmenu doesn't use fuzzy matching */
 
 #if INCREMENTAL_PATCH
 static int incremental =
-    0; /* -r  option; if 1, outputs text each time a key is pressed */
+    1; /* -r  option; if 1, outputs text each time a key is pressed */
 #endif // INCREMENTAL_PATCH
 
 #if INSTANT_PATCH
@@ -117,7 +117,12 @@ static unsigned int lines = 0;
 // #include "colors/doom-one.h"
 #include "/home/San/.cache/wal/colors-wal-dmenu.h"
 // static const char *fonts[] = {"JetBrainsMonoNL:size=12:style=Bold"};
-
+// static const char *colors[SchemeLast][2] = {
+//     /*     fg         bg       */
+//     [SchemeNorm] = {"#c5c5c5", "#1a1917"},
+//     [SchemeSel] = {"#e8c263", "#433f3f"},
+//     [SchemeOut] = {"#1a1917", "#e8c263"}};
+//
 #if GRID_PATCH
 
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */

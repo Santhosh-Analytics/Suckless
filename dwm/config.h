@@ -91,7 +91,6 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
-
 #define TAGKEYS(KEY, TAG)                                                      \
   {1, {{MODKEY, KEY}}, view, {.ui = 1 << TAG}},                                \
       {1, {{MODKEY | ControlMask, KEY}}, toggleview, {.ui = 1 << TAG}},        \
@@ -190,6 +189,12 @@ static Keychord keychords[] = {
     //
     //     /* Web browsers */
     {1, {{MODKEY, XK_w}}, spawn, SHCMD("brave-beta")},
+    {2,
+     {{MODKEY, XK_a}, {0, XK_p}},
+     spawn,
+     SHCMD("~/.config/usr_scripts/dmenu_alias_runner.sh")},
+    {2, {{MODKEY, XK_a}, {0, XK_c}}, spawn, SHCMD("code")},
+
     {1, {{MODKEY | ShiftMask | ControlMask, XK_s}}, spawn, SHCMD("wlogout")},
     {1, {{MODKEY, XK_n}}, spawn, SHCMD("obsidian")},
     {1, {{MODKEY, XK_e}}, spawn, SHCMD("thunderbird")},
@@ -206,6 +211,12 @@ static Keychord keychords[] = {
      {{MODKEY, XK_Left}},
      spawn,
      SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%")},
+    {1,
+     {{MODKEY, XK_y}},
+     spawn,
+     SHCMD("/opt/brave.com/brave-beta/brave-browser-beta "
+           "--profile-directory=Default "
+           "--app-id=agimnkijcaahngcdmfeangaknmldooml")},
     {1, {{0, XK_Print}}, spawn, {.v = flameshot}},
 
     {1, {{MODKEY | ShiftMask, XK_s}}, spawn, {.v = flameshot}},
