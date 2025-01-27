@@ -12,7 +12,7 @@
 
 /* appearance */
 static const unsigned int borderpx = 5; /* border pixel of windows */
-static const unsigned int gappx = 5;    /* gaps between windows */
+static const unsigned int gappx = 2;    /* gaps between windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
@@ -217,6 +217,18 @@ static Keychord keychords[] = {
      SHCMD("/opt/brave.com/brave-beta/brave-browser-beta "
            "--profile-directory=Default "
            "--app-id=agimnkijcaahngcdmfeangaknmldooml")},
+    {1,
+     {{MODKEY, XK_s}},
+     spawn,
+     SHCMD("/opt/brave.com/brave-beta/brave-browser-beta "
+           "--profile-directory=Default "
+           "--app-id=fmpnliohjhemenmnlpbfagaolkdacoja")},
+    {1,
+     {{MODKEY, XK_r}},
+     spawn,
+     SHCMD("/opt/brave.com/brave-beta/brave-browser-beta "
+           "--profile-directory=Default "
+           "--app-id=mjoklplbddabcmpepnokjaffbmgbkkgg")},
     {1, {{0, XK_Print}}, spawn, {.v = flameshot}},
 
     {1, {{MODKEY | ShiftMask, XK_s}}, spawn, {.v = flameshot}},
