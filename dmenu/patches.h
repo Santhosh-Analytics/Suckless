@@ -30,7 +30,7 @@
  * the program will crash on encountering such characters. Note that you will
  * also need a font that provides color emojis for this to work.
  */
-#define COLOR_EMOJI_PATCH 1
+#define COLOR_EMOJI_PATCH 0
 
 /* Minor patch to enable the use of Ctrl+v (XA_PRIMARY) and Ctrl+Shift+v
  * (CLIPBOARD) to paste. By default dmenu only supports Ctrl+y and Ctrl+Shift+y
@@ -43,7 +43,7 @@
  * update the option list according to the output of that command.
  * https://tools.suckless.org/dmenu/patches/dynamicoptions/
  */
-#define DYNAMIC_OPTIONS_PATCH 1
+#define DYNAMIC_OPTIONS_PATCH 0
 
 /* This patch will allow for emojis on the left side with a colored background
  * when selected. To test this try running: $ echo -e ":b here\n:p
@@ -52,7 +52,7 @@
  * and the line height patch and as such is intended to be combined with these.
  * https://tools.suckless.org/dmenu/patches/emoji-highlight/
  */
-#define EMOJI_HIGHLIGHT_PATCH 1
+#define EMOJI_HIGHLIGHT_PATCH 0
 
 /* This patch make it so that fuzzy matches gets highlighted and is therefore
  * meant to be used together with the fuzzymatch patch.
