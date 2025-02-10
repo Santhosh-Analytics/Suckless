@@ -12,12 +12,12 @@
 
 /* appearance */
 static const unsigned int borderpx = 5; /* border pixel of windows */
-static const unsigned int gappx = 2;    /* gaps between windows */
-static const unsigned int snap = 32;    /* snap pixel */
+static const unsigned int gappx = 12;   /* gaps between windows */
+static const unsigned int snap = 02;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const int horizpadbar = 5;       /* horizontal padding for statusbar */
-static const int vertpadbar = 5;        /* vertical padding for statusbar */
+static const int horizpadbar = 15;      /* horizontal padding for statusbar */
+static const int vertpadbar = 15;       /* vertical padding for statusbar */
 /* Default font will be Ubuntu if installed (ttf-ubuntu).
  * Otherwise, your default font will be Hack (ttf-hack)
  * JoyPixels (ttf-joypixels) is a dependency for colored fonts and emojis.
@@ -69,7 +69,7 @@ static const Rule rules[] = {
      *	WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    {"Gimp", NULL, NULL, 0, 1, -1},
+    {"Gimp", NULL, NULL, 0, 0, -1},
     {"Firefox", NULL, NULL, 1 << 8, 0, -1},
 };
 
@@ -194,6 +194,10 @@ static Keychord keychords[] = {
      spawn,
      SHCMD("~/.config/usr_scripts/dmenu_alias_runner.sh")},
     {2, {{MODKEY, XK_a}, {0, XK_c}}, spawn, SHCMD("code")},
+    {2,
+     {{MODKEY, XK_a}, {0, XK_d}},
+     spawn,
+     SHCMD("~/.config/usr_scripts/dict.sh")},
 
     {1, {{MODKEY | ShiftMask | ControlMask, XK_s}}, spawn, SHCMD("wlogout")},
     {1, {{MODKEY, XK_n}}, spawn, SHCMD("obsidian")},
