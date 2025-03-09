@@ -16,8 +16,8 @@ static const unsigned int gappx = 12;   /* gaps between windows */
 static const unsigned int snap = 02;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const int horizpadbar = 15;      /* horizontal padding for statusbar */
-static const int vertpadbar = 15;       /* vertical padding for statusbar */
+static const int horizpadbar = 5;       /* horizontal padding for statusbar */
+static const int vertpadbar = 5;        /* vertical padding for statusbar */
 /* Default font will be Ubuntu if installed (ttf-ubuntu).
  * Otherwise, your default font will be Hack (ttf-hack)
  * JoyPixels (ttf-joypixels) is a dependency for colored fonts and emojis.
@@ -70,7 +70,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 0, -1},
-    {"Firefox", NULL, NULL, 1 << 8, 0, -1},
+    {"brave-beta", NULL, NULL, 1 << 8, 0, -1},
 };
 
 /* layout(s) */
@@ -207,6 +207,7 @@ static Keychord keychords[] = {
     {1, {{0, XF86MonBrightnessDown}}, spawn, SHCMD("brightnessctl set 10%-")},
     {1, {{MODKEY, XK_Up}}, spawn, SHCMD("brightnessctl set +10%")},
     {1, {{MODKEY, XK_Down}}, spawn, SHCMD("brightnessctl set 10%-")},
+    {1, {{MODKEY, XK_o}}, spawn, SHCMD("rofi -show drun")},
     {1,
      {{MODKEY, XK_Right}},
      spawn,
