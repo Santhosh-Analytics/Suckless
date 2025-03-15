@@ -27,13 +27,26 @@ static const char *fonts[] = {"JetBrainsMonoNL:size=12:style=Bold",
                               "Hack:size=12:antialias=true:autohint=true",
                               "JoyPixels:size=12:antialias=true:autohint=true"};
 static const char dmenufont[] = "JetBrainsMonoNL:size=14:style=Bold";
-#include "/home/San/.cache/wal/colors-wal-dwm.h"
+// #include "/home/San/.cache/wal/colors-wal-dwm.h"
 // static const char col_1[] = "#282c34"; /* background color of bar */
 // static const char col_2[] = "#282c34"; /* border color unfocused windows */
 // static const char col_3[] = "#d7d7d7";
 // static const char col_4[] =
 //     "#924441"; /* border color focused windows and tags */
 // static const char col_cyan[] = "#005577";
+
+static const char col_base[] = "#1e1e2e";   /* Base (background) */
+static const char col_text[] = "#cdd6f4";   /* Text (foreground) */
+static const char col_red[] = "#89b4fa";    /* Red */
+static const char col_green[] = "#a6e3a1";  /* Green */
+static const char col_yellow[] = "#f9e2af"; /* Yellow */
+static const char col_blue[] = "#f38ba8";   /* Blue */
+static const char col_aqua[] = "#74c7ec";   /* Aqua */
+static const char *colors[][3] = {
+    /*               fg         bg         border */
+    [SchemeNorm] = {col_text, col_base, col_base},
+    [SchemeSel] = {col_base, col_blue, col_blue},
+};
 
 /* bar opacity
  * 0xff is no transparency.
