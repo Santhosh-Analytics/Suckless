@@ -111,7 +111,9 @@ static char *alpha_bgcolor = "#000000";
 // enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast };
 #include "/home/San/.cache/wal/colors-wal-st.h"
 
-/* Terminal colors (16 first used in escape sequence) */
+/* Apply colors to schemes *
+/* Default cursor color */
+
 /* Colorscheme based on the 'Doom One' theme from Doom Emacs */
 // static const char *colorname[] = {
 //     /* 8 normal colors */
@@ -145,11 +147,15 @@ static char *alpha_bgcolor = "#000000";
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
- */
-// unsigned int defaultfg = 256;
-// unsigned int defaultbg = 257;
-// unsigned int defaultcs = 256;
-// static unsigned int defaultrcs = 257;
+//  */
+// unsigned int defaultcs = 256;  /* Default cursor color index */
+// unsigned int defaultrcs = 257; /* Default reverse cursor color index */
+//
+// /* Default foreground and background colors */
+// unsigned int defaultfg = 1; /* Index of default foreground color in colorname
+// */ unsigned int defaultbg = 0; /* Index of default background color in
+// colorname */ static unsigned int defaultfg = 256; static unsigned int
+// defaultbg = 257;
 
 /*
  * Default shape of cursor

@@ -115,7 +115,7 @@ static unsigned int lines = 0;
  * 9. tomorrow-night.h
  */
 // #include "colors/doom-one.h"
-#include "/home/San/.cache/wal/colors-wal-dmenu.h"
+// #include "/home/San/.cache/wal/colors-wal-dmenu.h"
 // static const char *fonts[] = {"JetBrainsMonoNL:size=12:style=Bold"};
 // static const char *colors[SchemeLast][2] = {
 //     /*     fg         bg       */
@@ -123,6 +123,12 @@ static unsigned int lines = 0;
 //     [SchemeSel] = {"#e8c263", "#433f3f"},
 //     [SchemeOut] = {"#1a1917", "#e8c263"}};
 //
+static const char *colors[SchemeLast][2] = {
+    /*     fg         bg       */
+    [SchemeNorm] = {"#cdd6f4", "#1e1e2e"},
+    [SchemeSel] = {"#1e1e2e", "#f38ba8"},
+    [SchemeOut] = {"#000000", "#f38ba8"},
+};
 #if GRID_PATCH
 
 /* -g option; if nonzero, dmenu uses a grid comprised of columns and lines */
