@@ -206,7 +206,7 @@ static Keychord keychords[] = {
      {{MODKEY, XK_a}, {0, XK_p}},
      spawn,
      SHCMD("~/.config/usr_scripts/dmenu_alias_runner.sh")},
-    {2, {{MODKEY, XK_a}, {0, XK_c}}, spawn, SHCMD("code")},
+    {2, {{MODKEY, XK_a}, {0, XK_c}}, spawn, SHCMD("codium")},
     {2,
      {{MODKEY, XK_a}, {0, XK_d}},
      spawn,

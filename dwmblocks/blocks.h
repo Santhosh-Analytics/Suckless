@@ -22,7 +22,7 @@
 
 static const Block blocks[] = {
     /*Icon*/ /*Command*/ /*Update Interval*/ /*Update Signal*/
-    {" ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g", 5, 0},
+    {" ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g", 1, 0},
     // {"", "~/suckless/dwmblocks/Scripts/cpu.sh", 5, 0},
     {"", "~/suckless/dwmblocks/Scripts/cputemp.sh", 5, 0},
     {"", "~/suckless/dwmblocks/Scripts/bat.sh", 242, 0},
