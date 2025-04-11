@@ -9,15 +9,17 @@
 #include <X11/keysymdef.h>
 #define XF86MonBrightnessUp 0x1008FF02
 #define XF86MonBrightnessDown 0x1008FF03
+void incrgaps(const Arg *arg);
+void hidewin(const Arg *arg);
 
 /* appearance */
 static const unsigned int borderpx = 5; /* border pixel of windows */
-static const unsigned int gappx = 12;   /* gaps between windows */
-static const unsigned int snap = 02;    /* snap pixel */
+static unsigned int gappx = 8;          /* gaps between windows */
+static const unsigned int snap = 12;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const int horizpadbar = 5;       /* horizontal padding for statusbar */
-static const int vertpadbar = 5;        /* vertical padding for statusbar */
+static const int horizpadbar = 3;       /* horizontal padding for statusbar */
+static const int vertpadbar = 3;        /* vertical padding for statusbar */
 /* Default font will be Ubuntu if installed (ttf-ubuntu).
  * Otherwise, your default font will be Hack (ttf-hack)
  * JoyPixels (ttf-joypixels) is a dependency for colored fonts and emojis.
@@ -83,7 +85,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Gimp", NULL, NULL, 0, 0, -1},
-    {"brave-beta", NULL, NULL, 1 << 8, 0, -1},
+    {"zen-browser", NULL, NULL, 1 << 8, 0, -1},
 };
 
 /* layout(s) */
@@ -201,7 +203,7 @@ static Keychord keychords[] = {
     //            "\"distro.tube\"))'")},
     //
     //     /* Web browsers */
-    {1, {{MODKEY, XK_w}}, spawn, SHCMD("brave-beta")},
+    {1, {{MODKEY, XK_w}}, spawn, SHCMD("zen-browser")},
     {2,
      {{MODKEY, XK_a}, {0, XK_p}},
      spawn,
@@ -220,6 +222,8 @@ static Keychord keychords[] = {
     {1, {{0, XF86MonBrightnessDown}}, spawn, SHCMD("brightnessctl set 10%-")},
     {1, {{MODKEY, XK_Up}}, spawn, SHCMD("brightnessctl set +10%")},
     {1, {{MODKEY, XK_Down}}, spawn, SHCMD("brightnessctl set 10%-")},
+    {1, {{MODKEY | ShiftMask, XK_Up}}, incrgaps, {.i = +5}},
+    {1, {{MODKEY | ShiftMask, XK_Down}}, incrgaps, {.i = -5}},
     {1, {{MODKEY, XK_o}}, spawn, SHCMD("rofi -show drun")},
     {1,
      {{MODKEY, XK_Right}},
@@ -261,7 +265,9 @@ static Keychord keychords[] = {
     {1, {{MODKEY, XK_j}}, focusstack, {.i = +1}},
     {1, {{MODKEY, XK_k}}, focusstack, {.i = -1}},
     {1, {{MODKEY | ShiftMask, XK_j}}, rotatestack, {.i = +1}},
-    {1, {{MODKEY | ShiftMask, XK_k}}, rotatestack, {.i = -1}},
+    {1, {{MODKEY | ShiftMask, XK_j}}, rotatestack, {.i = +1}},
+    // {1, {{MODKEY | ShiftMask, XK_k}}, rotatestack, {.i = -1}},
+    // {1, {{MODKEY | ShiftMask, XK_k}}, rotatestack, {.i = -1}},
     {1, {{MODKEY, XK_i}}, incnmaster, {.i = +1}},
     {1, {{MODKEY, XK_d}}, incnmaster, {.i = -1}},
     {1, {{MODKEY, XK_h}}, setmfact, {.f = -0.05}},
@@ -277,7 +283,9 @@ static Keychord keychords[] = {
     {1, {{MODKEY, XK_m}}, setlayout, {.v = &layouts[2]}},
     {1, {{MODKEY, XK_g}}, setlayout, {.v = &layouts[3]}},
     {1, {{MODKEY, XK_space}}, setlayout, {0}},
+    {1, {{MODKEY, XK_q}}, hidewin, {0}},
 
+    // {1, {{MODKEY, XK_;}}, restorewin, {0}},
     {1, {{MODKEY | ShiftMask, XK_space}}, togglefloating, {0}},
     {1, {{MODKEY, XK_0}}, view, {.ui = ~0}},
     {1, {{MODKEY | ShiftMask, XK_0}}, tag, {.ui = ~0}},

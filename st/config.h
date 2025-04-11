@@ -11,8 +11,10 @@
  * Arch repos and is listed as a dependency for this build. JoyPixels is also
  * a hard dependency and makes colored fonts and emojis possible.
  */
-static char *font = {
-    "JetBrains Mono:pixelsize=15:antialias=true:autohint=true"};
+// static char *font = {
+// "JetBrains Mono:pixelsize=15:antialias=true:autohint=true"};
+static char *font =
+    "MesloLGS Nerd Font Mono:pixelsize=15:antialias=true:autohint=true";
 static char *font2[] = {
     "JoyPixels:pixelsize=14:antialias=true:autohint=true",
 };
@@ -109,8 +111,29 @@ float alphaUnfocused = 0.75;
 static char *alpha_bgcolor = "#000000";
 //
 // enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast };
-#include "/home/San/.cache/wal/colors-wal-st.h"
+// #include "/home/San/.cache/wal/colors-wal-st.h"
+static const char *colorname[] = {
+    /* 8 normal colors */
+    "#45475A", "#F38BA8", "#A6E3A1", "#F9E2AF", "#89B4FA", "#F5C2E7", "#94E2D5",
+    "#BAC2DE",
 
+    /* 8 bright colors */
+    "#585B70", "#F38BA8", "#A6E3A1", "#F9E2AF", "#89B4FA", "#F5C2E7", "#94E2D5",
+    "#A6ADC8",
+
+    [256] = "#CDD6F4", /* default foreground colour */
+    [257] = "#1E1E2E", /* default background colour */
+    [258] = "#F5E0DC", /*575268*/
+
+};
+
+/*
+ * foreground, background, cursor, reverse cursor
+ */
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
+unsigned int defaultcs = 258;
+static unsigned int defaultrcs = 258;
 /* Apply colors to schemes *
 /* Default cursor color */
 
@@ -273,6 +296,12 @@ static Key key[] = {
     // {XK_KP_Home, ShiftMask, "\033[1;2H", 0, +1},
     // {XK_KP_Home, XK_ANY_MOD, "\033[H", 0, -1},
     // {XK_KP_Home, XK_ANY_MOD, "\033[1~", 0, +1},
+    {XK_Left, Mod1Mask, "\033b", 0, 0},
+    {XK_Right, Mod1Mask, "\033f", 0, 0},
+    {XK_Left, ControlMask, "\033OH", 0, 0},
+    {XK_Right, ControlMask, "\033OF", 0, 0},
+    {XK_BackSpace, ControlMask | ShiftMask, "\025", 0, 0},
+    {XK_BackSpace, ControlMask, "\027", 0, 0},
     {XK_KP_Up, XK_ANY_MOD, "\033Ox", +1, 0},
     {XK_KP_Up, XK_ANY_MOD, "\033[A", 0, -1},
     {XK_KP_Up, XK_ANY_MOD, "\033OA", 0, +1},
