@@ -142,7 +142,9 @@ static const char *clipcmd[] = {"clipmenu", "-p", "San's Clip History",
 
 static const char *flameshot[] = {
     "sh", "-c",
-    "flameshot gui --raw | xclip -selection clipboard -t image/png -i", NULL};
+    "flameshot gui --raw | xclip -selection clipboard -t image/png -i && "
+    "canberra-gtk-play -i camera-shutter",
+    NULL};
 // static const char *xclipcmd[] = {"sh", "-c", "flameshot gui | xclip
 // -selection clipboard -t image/png", NULL};
 
