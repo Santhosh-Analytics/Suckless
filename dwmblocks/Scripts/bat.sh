@@ -20,7 +20,7 @@ status=$(cat /sys/class/power_supply/BAT1/status)
 # Set icon based on battery status
 case "$status" in
 "Charging") icon="" ;;    # Charging
-"Discharging") icon="" ;; # Discharging
+"Discharging") icon="🔋" ;; # Discharging
 "Full") icon="" ;;        # Full
 esac
 
