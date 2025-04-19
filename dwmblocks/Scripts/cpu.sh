@@ -8,4 +8,4 @@
 cpu=$(grep -o "^[^ ]*" /proc/loadavg)
 
 # Apply Catppuccin Mocha colors
-echo -e " $cpu" # Blue for CPU load
+echo -e " 🧠$cpu" # Blue for CPU load

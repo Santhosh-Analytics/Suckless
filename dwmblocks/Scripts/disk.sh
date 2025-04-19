@@ -18,4 +18,4 @@
 disk=$(df -h / | awk 'NR==2 {print $3 "/" $2}')
 
 # Apply Catppuccin Mocha colors
-echo -e " $disk" # Aqua for disk usage
+echo "{\"icon\":\"💾\", \"disk\":\"$disk\"}"

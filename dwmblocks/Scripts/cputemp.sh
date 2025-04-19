@@ -18,4 +18,4 @@ cputemp=$(sensors k10temp-pci-00c3 | awk '/^Tctl/ {print $2}' | sed 's/+//;s/°C
 gputemp=$(sensors | awk '/^edge/ {print $2}' | sed 's/+//;s/°C//')
 
 # Output temperature with color
-echo " CPU: ${cputemp}°C |  GPU: ${gputemp}°C"
+echo "C: ${cputemp}°C | G: ${gputemp}°C"

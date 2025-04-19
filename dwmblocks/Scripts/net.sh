@@ -25,8 +25,9 @@ ssid=$(iw dev wlp2s0 link | grep 'SSID' | awk '{print $2}')
 
 # If not connected, show a placeholder
 if [ -z "$ssid" ]; then
-  ssid="Not Connected"
+	ssid="Not Connected"
 fi
 
+echo "{\"icon\":\"󰤨\", \"ssid\":\"$ssid\"}"
 # Apply Catppuccin Mocha colors
-echo -e "󰤨 $ssid" # Blue for Wi-Fi status
+# echo -e "󰤨 $ssid" # Blue for Wi-Fi status

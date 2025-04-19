@@ -21,7 +21,7 @@ flathub_updates=$(flatpak update --appstream | wc -l)
 
 # Apply Catppuccin Mocha colors
 if [ "$pacman_updates" -gt 0 ] || [ "$yay_updates" -gt 0 ] || [ "$flathub_updates" -gt 0 ]; then
-  echo -e " $pacman_updates|$yay_updates|$flathub_updates" # Red for updates
+	echo -e " $pacman_updates|$yay_updates|$flathub_updates" # Red for updates
 else
-  echo -e " 0" # Green for no updates
+	echo -e "0" # Green for no updates
 fi

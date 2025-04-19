@@ -16,7 +16,7 @@ mute=$(pactl get-sink-mute @DEFAULT_SINK@ | grep -oP 'yes|no')
 
 # Apply Catppuccin Mocha colors
 if [ "$mute" = "yes" ]; then
-  echo -e "婢 Muted" # Red for muted
+	echo -e "婢 Muted" # Red for muted
 else
-  echo -e " $volume" # Blue for volume
+	echo -e " 🔊$volume" # Blue for volume
 fi
