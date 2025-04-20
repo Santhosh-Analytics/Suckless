@@ -69,6 +69,7 @@
 #endif
 #include "dwl-ipc-unstable-v2-protocol.h"
 #include "util.h"
+extern const char *tags[];
 
 /* macros */
 #define MAX(A, B) ((A) > (B) ? (A) : (B))
@@ -3382,6 +3383,25 @@ void view(const Arg *arg) {
   focusclient(focustop(selmon), 1);
   arrange(selmon);
   printstatus();
+}
+
+void view_and_update(const Arg *arg) {
+  char cmd[64];
+  int tag = 0;
+
+  view(arg);
+  for (int i = 0; i < LENGTH(tags); i++) {
+    if (arg->ui == (1 << i)) {
+      tag = i + 1;
+      break;
+    }
+  }
+  snprintf(cmd, sizeof(cmd), "eww update current_tag=%d", tag);
+  if (fork() == 0) {
+    setsid();
+    execl("/bin/sh", "sh", "-c", cmd, (char *)NULL);
+    exit(0);
+  }
 }
 
 void virtualkeyboard(struct wl_listener *listener, void *data) {
