@@ -33,11 +33,23 @@ elif [ "$status" = "Full" ]; then
 else
 	# Discharging - different icons for different levels
 	if [ "$capacity" -lt 10 ]; then
-		icon="🪫" # Critical (under 10%)
+		icon="󰁺" # Critical (under 10%)
+	elif [ "$capacity" -lt 20 ]; then
+		icon="󰁺" # Low (under 30%)
 	elif [ "$capacity" -lt 30 ]; then
-		icon="🔋" # Low (under 30%)
+		icon="󰁼" # Medium (30-69%)
+	elif [ "$capacity" -lt 40 ]; then
+		icon="󰁽" # Medium (30-69%)
+	elif [ "$capacity" -lt 50 ]; then
+		icon="󰁾" # Medium (30-69%)
+	elif [ "$capacity" -lt 60 ]; then
+		icon="󰁿" # Medium (30-69%)
 	elif [ "$capacity" -lt 70 ]; then
-		icon="🔋" # Medium (30-69%)
+		icon="󰂀" # Medium (30-69%)
+	elif [ "$capacity" -lt 80 ]; then
+		icon="󰂁" # Medium (30-69%)
+	elif [ "$capacity" -lt 90 ]; then
+		icon="󰂂" # Medium (30-69%)
 	else
 		icon="🔋" # High (70%+)
 	fi
