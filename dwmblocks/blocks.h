@@ -24,12 +24,12 @@ static const Block blocks[] = {
     /*Icon*/ /*Command*/ /*Update Interval*/ /*Update Signal*/
     {" ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g", 1, 0},
     // {"", "~/suckless/dwmblocks/Scripts/cpu.sh", 5, 0},
-    {"", "~/suckless/dwmblocks/Scripts/cputemp.sh", 5, 0},
-    {"", "~/suckless/dwmblocks/Scripts/bat.sh", 242, 0},
+    {"", "~/suckless/dwmblocks/Scripts/dwm-cpu-temp.sh", 5, 0},
+    {"", "~/suckless/dwmblocks/Scripts/dwm-bat.sh", 242, 0},
     {"💻", "brightnessctl | grep -o '[0-9]\\+%' | head -1", 3, 0},
     {"", "~/suckless/dwmblocks/Scripts/vol.sh", 3, 0},
-    {"", "~/suckless/dwmblocks/Scripts/net.sh", 30, 0},
-    {"", "~/suckless/dwmblocks/Scripts/disk.sh", 250, 0},
+    {"", "~/suckless/dwmblocks/Scripts/dwm-net.sh", 30, 0},
+    {"", "~/suckless/dwmblocks/Scripts/dwm-disk.sh", 250, 0},
     {"", "~/suckless/dwmblocks/Scripts/check_updates.sh", 18000, 0},
     {"", "date '+%b %d (%a) %I:%M%p'", 5, 0},
 };
